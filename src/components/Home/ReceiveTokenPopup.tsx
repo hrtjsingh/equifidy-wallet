@@ -15,7 +15,7 @@ const ReceiveTokenPopup = ({ isOpen, onClose, tokenAddress, currentChain }: { is
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Deposit</DialogTitle>
+                    <DialogTitle className='text-grat-400'>Deposit</DialogTitle>
                 </DialogHeader>
                 <div className="flex flex-col items-center justify-center w-full ">
                     <h2 className='text-2xl mb-8'>Deposit</h2>

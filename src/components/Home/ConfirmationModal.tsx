@@ -16,7 +16,7 @@ export default function ConfirmationModal({ isOpen, onClose, onConfirm, title, d
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>{title}</DialogTitle>
+                    <DialogTitle className="text-gray-400">{title}</DialogTitle>
                 </DialogHeader>
                 {description}
                 {showButtons &&

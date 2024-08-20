@@ -41,7 +41,7 @@ const SendTokenPopup = ({ isOpen, onClose, secret, currentChain }: { isOpen: boo
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Send Token</DialogTitle>
+                    <DialogTitle className=' text-gray-400'>Send Token</DialogTitle>
                 </DialogHeader>
                 <div className="flex flex-col items-center justify-center w-full ">
                     <h2 className='text-2xl mb-8'>Send Token</h2>
