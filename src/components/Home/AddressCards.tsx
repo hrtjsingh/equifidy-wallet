@@ -5,6 +5,8 @@ import {
     Card,
     CardContent,
 } from "@/components/ui/card"
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+
 import { LuRefreshCw } from "react-icons/lu";
 
 import ThreeDotMenu from "@/components/Home/ThreeDotMenu";
@@ -107,7 +109,7 @@ const AddressCards = ({ item, deleteHandler, currentChain, index, secret }: any)
             <Card className="mb-6">
                 <CardContent className="px-6 p-0 relative">
                     <div className="absolute flex items-center gap-6 right-2 top-2">
-                        <span className='cursor-pointer' onClick={() => setSetRefresh(true)}><LuRefreshCw /></span>
+                        <span className='cursor-pointer' onClick={() => setSetRefresh(true)}><LuRefreshCw color='#616876' size="1.5em" /></span>
                         <ThreeDotMenu handleToggle={handleToggle} string={item} secret={secret} deleteHandler={deleteHandler} />
                     </div>
                     {loading ?
@@ -125,13 +127,13 @@ const AddressCards = ({ item, deleteHandler, currentChain, index, secret }: any)
                             </span>
                         </div> : <>
                             <div className="flex justify-center items-center flex-col px-6 mb-6 cursor-pointer">
-                                <h2 className="p-6 font-bold text-xl">Wallet {index + 1}</h2>
+                                <h2 className="p-6 font-bold text-xl text-gray-400">Wallet {index + 1}</h2>
                                 <div className="flex items-center gap-5">
-                                    <span className="text-xs sm:text-sm md:text-md">{stringHandler(item)}</span>
+                                    <span className="text-xs sm:text-sm md:text-md text-gray-300">{stringHandler(item)}</span>
                                     {!isCopied ? (
-                                        <FaRegCopy size="1.5em" className="cursor-pointer" onClick={() => copyHandler(item, setCopied)} />
+                                        <FaRegCopy color='#616876' size="1.5em" className="cursor-pointer" onClick={() => copyHandler(item, setCopied)} />
                                     ) : (
-                                        <FaCheck size="1.5em" />
+                                        <FaCheck color='#616876' size="1.5em" />
                                     )}
                                 </div>
                             </div>
@@ -160,8 +162,8 @@ const AddressCards = ({ item, deleteHandler, currentChain, index, secret }: any)
                             </div>
 
                             <div className="pb-3 pr-3 text-right">
-                                <span className="cursor-pointer" onClick={() => setExpand((prev) => !prev)}>
-                                    {expand ? "Hide" : "Expand"}
+                                <span className="cursor-pointer flex justify-end" onClick={() => setExpand((prev) => !prev)}>
+                                    {expand ? <IoIosArrowUp size="2em" color='#616876' /> : <IoIosArrowDown color='#616876' size="2em" />}
                                 </span>
                             </div>
                         </>}

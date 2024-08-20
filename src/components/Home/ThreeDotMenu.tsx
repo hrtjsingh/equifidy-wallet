@@ -65,7 +65,7 @@ export default function ThreeDotMenu({ handleToggle, string, secret, deleteHandl
                 onConfirm={handleConfirmDelete}
                 title="Don't share this Private Key"
                 description={<div className="flex flex-col items-center">
-                    <span className="py-5 text-gray-300 break-words w-[400px] text-center">
+                    <span className="py-5 text-[#616876] break-words w-[400px] text-center">
                         {secret}
                     </span>
                     {!isCopied ? (

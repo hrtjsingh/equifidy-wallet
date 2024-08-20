@@ -23,13 +23,13 @@ const ReceiveTokenPopup = ({ isOpen, onClose, tokenAddress, currentChain }: { is
                         <QRCode value={tokenAddress} size={200} />
                     </div>
                     <div className="flex items-center mt-8 ">
-                        <span className="text-lg w-80 break-words text-center text-gray-300">{tokenAddress}</span>
+                        <span className="text-lg w-80 break-words text-center text-[#616876] ">{tokenAddress}</span>
                     </div>
                     <div className="mt-12">
                         {isCopied ? <Button className="text-md w-40 h-12 bg-blue-900 hover:bg-blue-950 text-green-500">Copied!</Button> : <Button className="text-md w-40 h-12 bg-blue-900 hover:bg-blue-950 text-white cursor-pointer" onClick={() => copyHandler(tokenAddress, setIsCopied)}>Copy</Button>}
                     </div>
                     <div className='w-[50%] text-center mt-8 mb-5'>
-                        <span className="text-gray-300">This address can only receive assets on <span className='capitalize'>{currentChain}</span>.</span>
+                        <span className="text-gray-500">This address can only receive assets on <span className='capitalize'>{currentChain}</span>.</span>
                     </div>
                 </div>
             </DialogContent>
