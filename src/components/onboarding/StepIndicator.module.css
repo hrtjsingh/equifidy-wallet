@@ -1,0 +1,35 @@
+.stepContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.step {
+    display: flex;
+    align-items: center;
+}
+
+.bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+
+.completed .bullet {
+    background-color: rgb(76, 148, 255);
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.current .bullet {
+    background-color: rgb(76, 148, 255);
+    opacity: 1;
+}
+
+.next .bullet {
+    background-color: rgb(20, 21, 27);
+}
