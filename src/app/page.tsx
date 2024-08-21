@@ -5,6 +5,7 @@ import Header from "@/components/Home/Header";
 import { useEffect, useState } from "react";
 import { createEthWallet, createSolWallet, stringDecryptor, stringEncryptor } from "../utils";
 import SettingMenu from "@/components/Home/SettingMenu";
+import NoWallet from "@/components/Home/NoWallet";
 
 export default function Home() {
   const [currentChain, setCurrentChain] = useState("")
@@ -71,6 +72,7 @@ export default function Home() {
             + Add new <span className="capitalize">{currentChain}</span> Wallet
           </span> <span><SettingMenu /></span>
         </div>
+        {walletsList.length === 0 && <NoWallet createNewWallet={createNewWallet} currentChain={currentChain} />}
         {walletsList?.map((item: any, i: number) => (
           <AddressCards key={i} item={item.publicKey} secret={item.privateKey} index={i} currentChain={currentChain} deleteHandler={deleteHandler} />
         ))}
