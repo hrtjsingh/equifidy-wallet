@@ -14,8 +14,9 @@ import Image from 'next/image';
 const Header = ({ chainHandler, currentChain }: any) => {
     console.log(currentChain)
     return (
-        <div className="w-full flex justify-center mt-12 relative">
-            <Image className='absolute -top-5 left-12' src="/logo.png" height={80} width={80} alt='logo' />
+        <div className="w-full flex flex-col gap-5 items-center md:flex-row justify-center mt-5 md:m-12 relative">
+            <Image className=' md:absolute -top-5 left-12' src="/logo.png" height={80} width={80} alt='logo' />
+            <Airdrop currentChain={currentChain} />
             {currentChain && <Select defaultValue={currentChain} onValueChange={chainHandler}>
                 <SelectTrigger className="w-[200px]">
                     <SelectValue />
@@ -33,7 +34,7 @@ const Header = ({ chainHandler, currentChain }: any) => {
                     ))}
                 </SelectContent>
             </Select>}
-            <Airdrop currentChain={currentChain} />
+
 
         </div>
     )

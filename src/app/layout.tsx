@@ -5,7 +5,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import WithAuth from "@/protectedRoutes";
-
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,6 +38,17 @@ export default function RootLayout({
           <WithAuth>
             {children}
           </WithAuth>
+          <ToastContainer position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={Bounce} />
         </ThemeProvider>
       </body>
     </html >

@@ -128,8 +128,8 @@ const AddressCards = ({ item, deleteHandler, currentChain, index, secret }: any)
                         </div> : <>
                             <div className="flex justify-center items-center flex-col px-6 mb-6 cursor-pointer">
                                 <h2 className="p-6 font-bold text-xl text-gray-400">Wallet {index + 1}</h2>
-                                <div className="flex items-center gap-5">
-                                    <span className="text-xs sm:text-sm md:text-md text-gray-300">{stringHandler(item)}</span>
+                                <div className="flex items-center text-center justify-center gap-5">
+                                    <span className="text-xs break-words w-[60%] md:w-full md:text-md lg:text-lg text-gray-300">{stringHandler(item)}</span>
                                     {!isCopied ? (
                                         <FaRegCopy color='#616876' size="1.5em" className="cursor-pointer" onClick={() => copyHandler(item, setCopied)} />
                                     ) : (

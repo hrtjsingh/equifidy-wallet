@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { sendEth, sendSol } from '@/utils';
+import { toast } from 'react-toastify';
 
 
 const SendTokenPopup = ({ isOpen, onClose, secret, currentChain }: { isOpen: boolean, onClose: () => void, secret: string, currentChain: string }) => {
@@ -18,18 +19,19 @@ const SendTokenPopup = ({ isOpen, onClose, secret, currentChain }: { isOpen: boo
                 const res = await sendSol(secret, recipient, amount)
                 setStatus(res)
                 if (res.success) {
+                    toast.success(`${amount} Solana Sent successfully`)
                     setTimeout(onClose, 3000)
                 }
             } else {
                 const res = await sendEth(secret, recipient, amount)
                 setStatus(res)
                 if (res.success) {
+                    toast.success(`${amount} Ether Sent successfully`)
                     setTimeout(onClose, 3000)
                 }
             }
-            // onClose();
         } else {
-            alert('Please enter a valid recipient address and amount.');
+            toast.error(`Please enter a valid recipient address and amount.`)
         }
     };
     useEffect(() => {

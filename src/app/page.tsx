@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { createEthWallet, createSolWallet, stringDecryptor, stringEncryptor } from "../utils";
 import SettingMenu from "@/components/Home/SettingMenu";
 import NoWallet from "@/components/Home/NoWallet";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const [currentChain, setCurrentChain] = useState("")
@@ -51,6 +52,7 @@ export default function Home() {
     if (currentChain === "ethereum") {
       key = "wallet-eth"
     }
+    toast.success("Wallet Deleted")
     localStorage.setItem(key, JSON.stringify(del))
   }
   const createNewWallet = () => {

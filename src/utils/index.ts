@@ -4,6 +4,7 @@ import nacl from "tweetnacl"
 import { Wallet, HDNodeWallet, ethers } from "ethers";
 
 import { Connection, Keypair, Transaction, SystemProgram, sendAndConfirmTransaction, PublicKey, LAMPORTS_PER_SOL, clusterApiUrl } from '@solana/web3.js';
+import { toast } from "react-toastify";
 
 const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
 
@@ -70,6 +71,7 @@ export const createSolWallet = async (mnemonic: string, index: number, callback:
     .join('');
   localStorage.setItem("wallet-sol", JSON.stringify([...prevWallets, { "publicKey": keypair.publicKey, "privateKey": hexString }]))
   localStorage.setItem("has-wallet", "true")
+  toast.success("New Solana Wallet Created")
 }
 
 export const createEthWallet = async (mnemonic: string, index: number, callback: any) => {
@@ -83,6 +85,7 @@ export const createEthWallet = async (mnemonic: string, index: number, callback:
   callback(index + 1)
   localStorage.setItem("wallet-eth", JSON.stringify([...prevWallets, { "publicKey": wallet.address, "privateKey": wallet.signingKey.privateKey }]))
   localStorage.setItem("has-wallet", "true")
+  toast.success("New Ethereum Wallet Created")
 }
 
 export const getEthBalance = async (address: string) => {
