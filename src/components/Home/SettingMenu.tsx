@@ -53,10 +53,10 @@ export default function SettingMenu() {
                 title="Don't share this Seed Phrase "
                 description={<div className="flex flex-col items-center">
                     <div className='w-full mt-8'>
-                        <div className='p-4 bg-[#202127] cursor-pointer rounded-lg hover:bg-[#16171a] gap-5 mb-5' onClick={() => copyHandler(mnemonic, setCopied)}>
+                        <div className='py-4 bg-[#202127] cursor-pointer rounded-lg hover:bg-[#16171a] gap-5 mb-5' onClick={() => copyHandler(mnemonic, setCopied)}>
                             <div className='flex flex-wrap border-b-2 p-2 border-gray-500'>
                                 {mnemonic.split(" ").map((item, i) => (
-                                    <span className='p-3 w-[135px] text-lg text-gray-400' key={item}>
+                                    <span className='p-3 min-w-[145px] max-w-fit text-lg text-gray-400' key={item}>
                                         <span className='text-md mr-4 text-gray-500 inline-block w-5'>{i + 1}</span>{item}</span>
                                 ))}
                             </div>
