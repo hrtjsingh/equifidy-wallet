@@ -34,7 +34,7 @@ const ProtectedRoute = ({ children }: { children: any }) => {
             <Circles
                 height="80"
                 width="80"
-                color="#DA74AC"
+                color="#1d1c68"
                 ariaLabel="circles-loading"
                 wrapperStyle={{}}
                 wrapperClass=""

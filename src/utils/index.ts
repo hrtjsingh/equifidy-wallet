@@ -7,8 +7,6 @@ import { Connection, Keypair, Transaction, SystemProgram, sendAndConfirmTransact
 
 const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
 
-// const SOL_TO_LAMPORTS = 1_000_000_000;
-
 function solToLamports(solAmount: number) {
   return solAmount * LAMPORTS_PER_SOL;
 }
@@ -153,6 +151,24 @@ export const getSolBalance = async (address: string) => {
   }
 };
 
+export const getAirdrop = async (address: string) => {
+  console.log(`Requesting airdrop for ${address}`)
+  const AIRDROP_AMOUNT = 5 * LAMPORTS_PER_SOL
+  const signature = await connection.requestAirdrop(
+    new PublicKey(address),
+    AIRDROP_AMOUNT
+  );
+
+  const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash();
+
+  await connection.confirmTransaction({
+    blockhash,
+    lastValidBlockHeight,
+    signature
+  }, 'finalized');
+  console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
+  return { "success": true, "signature": signature }
+}
 
 export const convertPriceToUsd = async (currentChain: string) => {
   const url: string = process.env.NEXT_PUBLIC_API_COINGECO_API || ""
@@ -245,7 +261,7 @@ export const copyHandler = (text: string, callback: any) => {
   setTimeout(() => { callback(false) }, 2000)
 }
 
-export function maskString(inputString: string, showFirstDigits = 4, showLastDigits = 4) {
+export const maskString = (inputString: string, showFirstDigits = 4, showLastDigits = 4) => {
   if (inputString.length <= showFirstDigits + showLastDigits) {
     return inputString;
   }
@@ -256,3 +272,16 @@ export function maskString(inputString: string, showFirstDigits = 4, showLastDig
   return firstPart + maskedPart + lastPart;
 }
 
+export const pasteToInput = (fn: any) => {
+  if (navigator.clipboard) {
+    navigator.clipboard.readText()
+      .then(text => {
+        fn(text);
+      })
+      .catch(err => {
+        console.error('Failed to read clipboard content:', err);
+      });
+  } else {
+    console.error('Clipboard API is not supported on this browser.');
+  }
+}

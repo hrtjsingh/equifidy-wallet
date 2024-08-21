@@ -118,7 +118,7 @@ const AddressCards = ({ item, deleteHandler, currentChain, index, secret }: any)
                                 <Circles
                                     height="30"
                                     width="30"
-                                    color="#DA74AC"
+                                    color="#1d1c68"
                                     ariaLabel="circles-loading"
                                     wrapperStyle={{}}
                                     wrapperClass=""
@@ -153,7 +153,7 @@ const AddressCards = ({ item, deleteHandler, currentChain, index, secret }: any)
                                             : `${balance} ETH`}
                                     </span>
                                     <div className="flex justify-center gap-5">
-                                        <Button variant="secondary" className="w-24" onClick={handleOpenPopup}>
+                                        <Button className="w-24 bg-blue-600 text-white hover:bg-blue-700" onClick={handleOpenPopup}>
                                             Receive
                                         </Button>
                                         <Button className="w-24" onClick={handleOpenSendPopup}>Send</Button>
